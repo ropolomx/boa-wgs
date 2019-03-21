@@ -7,6 +7,7 @@ reference: ref.fa
 
 # program paramanters
 
+default_cpus: 4
 shovill_cpus: 8
 prokka_cpus: 8
 shovill_ram: 8

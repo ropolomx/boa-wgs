@@ -5,5 +5,7 @@ rule mlst:
         '{sample}/mlst.txt'
     params:
         cpus=config["default_cpus"]
+    conda:
+        '../envs/mlst.yaml'
     shell:
         'mlst --threads {params.cpus} {input} > {output}'
