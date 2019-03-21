@@ -14,6 +14,7 @@ rule all:
         expand('{sample}/contigs.fa', sample=SAMPLE['isolate']),
         expand('{sample}/prokka/{sample}.gbk', sample=SAMPLE['isolate']),
         expand('{sample}/abricate_amr.txt', sample=SAMPLE['isolate']),
+        expand('{sample}/abricate_vf.txt', sample=SAMPLE['isolate']),
         expand('{sample}/mlst.txt', sample=SAMPLE['isolate'])
 
 # Load modules
