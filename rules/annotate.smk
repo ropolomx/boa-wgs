@@ -18,6 +18,8 @@ rule prokka:
         prefix='{sample}',
         outdir='{sample}/prokka',
         cpus=config["prokka_cpus"]
+    conda:
+        "../envs/prokka.yaml"
     shell:
         'prokka --kingdom Bacteria --prefix {params.prefix} --outdir {params.outdir} --cpus {params.cpus} --force {input}'
 

@@ -5,17 +5,19 @@ import pandas as pd
 configfile: "config.yaml"
 
 REF = config["reference"]
+SAMPLE = pd.read_csv(config["samples"], sep = "\t").set_index("isolate", drop=False)
 
 # Target rules
 
 rule all:
     input:
-        # The first rule should define the default target files
-        # Subsequent target rules can be specified below. They should start with all_*.
+        expand('{sample}/contigs.fa', sample=SAMPLE['isolate']),
+        expand('{sample}/prokka/{sample}.gbk', sample=SAMPLE['isolate'])
 
+# Load modules
 
-include: "rules/assemble.smk"
+include:"rules/assemble.smk"
 include: "rules/annotate.smk"
-include: "rules/abricate.smk"
-include: "rules/mlst.smk"
-include: "rules/snippy.smk"
+#include: "rules/abricate.smk"
+#include: "rules/mlst.smk"
+#include: "rules/snippy.smk"
