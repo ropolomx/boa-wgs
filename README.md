@@ -46,11 +46,11 @@ Execute the workflow locally via
 
 using `$N` cores or run it in a cluster environment via
 
-    snakemake --cluster qsub --jobs 100
+    snakemake --cluster qsub --jobs 100 --use-conda
 
 or
 
-    snakemake --drmaa --jobs 100
+    snakemake --drmaa --jobs 100 --use-conda
 
 See the [Snakemake documentation](https://snakemake.readthedocs.io) for further details.
 
